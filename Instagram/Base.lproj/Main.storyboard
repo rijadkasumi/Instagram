@@ -96,12 +96,11 @@
             <objects>
                 <viewController id="6WR-41-4oJ" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7e-S8-YhI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-2R-c73">
-                                <rect key="frame" x="0.0" y="9" width="414" height="871"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-2R-c73">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="436" id="Pvh-II-tkm" customClass="PostCell" customModule="Instagram" customModuleProvider="target">
@@ -162,6 +161,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QYU-NE-Oye"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BRA-2R-c73" firstAttribute="top" secondItem="z7e-S8-YhI" secondAttribute="top" id="BOi-To-lIp"/>
+                            <constraint firstAttribute="bottom" secondItem="BRA-2R-c73" secondAttribute="bottom" id="MIk-KE-fWP"/>
+                            <constraint firstItem="BRA-2R-c73" firstAttribute="leading" secondItem="QYU-NE-Oye" secondAttribute="leading" id="rCs-TT-NeK"/>
+                            <constraint firstItem="BRA-2R-c73" firstAttribute="trailing" secondItem="QYU-NE-Oye" secondAttribute="trailing" id="wFL-ra-yYw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QfP-zu-FFe">
                         <barButtonItem key="rightBarButtonItem" title="+" image="insta_camera_btn" id="uWM-Rg-i1V">
@@ -181,47 +186,37 @@
         <!--Camera View Controller-->
         <scene sceneID="ab1-0B-329">
             <objects>
-                <viewController id="Ejx-Eg-Inh" customClass="CameraViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Ejx-Eg-Inh" customClass="CameraViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wEa-y9-3vd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-cM-6G4">
-                                <rect key="frame" x="10" y="453" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ack-nv-BhF">
-                                <rect key="frame" x="20" y="497" width="374" height="31"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cQn-i0-cJT">
+                                <rect key="frame" x="20" y="94" width="374" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="umd-cE-ctC" appends="YES" id="SRn-8Y-C9e"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ack-nv-BhF">
+                                <rect key="frame" x="20" y="557" width="374" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                 <connections>
                                     <action selector="onSubmitButton:" destination="Ejx-Eg-Inh" eventType="touchUpInside" id="6Ug-ig-0wq"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cQn-i0-cJT">
-                                <rect key="frame" x="20" y="50" width="374" height="375"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="umd-cE-ctC" appends="YES" id="SRn-8Y-C9e"/>
-                                </connections>
-                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-cM-6G4">
+                                <rect key="frame" x="10" y="499" width="394" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qrE-eB-Hs1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="RTi-cM-6G4" firstAttribute="leading" secondItem="qrE-eB-Hs1" secondAttribute="leading" constant="10" id="RDg-pZ-ZHp"/>
-                            <constraint firstItem="RTi-cM-6G4" firstAttribute="top" secondItem="cQn-i0-cJT" secondAttribute="bottom" constant="10" id="T09-7h-Igs"/>
-                            <constraint firstItem="ack-nv-BhF" firstAttribute="leading" secondItem="qrE-eB-Hs1" secondAttribute="leading" constant="20" id="TGR-Rq-Bf2"/>
-                            <constraint firstItem="qrE-eB-Hs1" firstAttribute="bottom" secondItem="ack-nv-BhF" secondAttribute="bottom" constant="280" id="W3N-bI-RRV"/>
-                            <constraint firstItem="cQn-i0-cJT" firstAttribute="top" secondItem="qrE-eB-Hs1" secondAttribute="top" constant="50" id="Yla-dD-qIo"/>
-                            <constraint firstItem="qrE-eB-Hs1" firstAttribute="trailing" secondItem="RTi-cM-6G4" secondAttribute="trailing" constant="10" id="Ynk-vT-Pw1"/>
-                            <constraint firstItem="RTi-cM-6G4" firstAttribute="top" secondItem="cQn-i0-cJT" secondAttribute="bottom" constant="10" id="Yqa-XZ-QNU"/>
-                            <constraint firstItem="qrE-eB-Hs1" firstAttribute="trailing" secondItem="ack-nv-BhF" secondAttribute="trailing" constant="20" id="gWr-gF-N13"/>
-                            <constraint firstItem="ack-nv-BhF" firstAttribute="top" secondItem="RTi-cM-6G4" secondAttribute="bottom" constant="10" id="s9e-Tc-bPf"/>
-                            <constraint firstItem="cQn-i0-cJT" firstAttribute="leading" secondItem="qrE-eB-Hs1" secondAttribute="leading" constant="20" id="y2s-f9-Jhr"/>
-                            <constraint firstItem="qrE-eB-Hs1" firstAttribute="trailing" secondItem="cQn-i0-cJT" secondAttribute="trailing" constant="20" id="y9h-rG-2Ud"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="commentField" destination="RTi-cM-6G4" id="oVg-6D-YIX"/>
@@ -240,10 +235,10 @@
         <!--Navigation Controller-->
         <scene sceneID="gLD-yw-5Ys">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OZn-68-NN1" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="OZn-68-NN1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u0Z-Kz-Mch">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
